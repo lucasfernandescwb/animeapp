@@ -30,7 +30,7 @@ export default function Header() {
     }, [lastScrollY]);
 
     return (
-        <header className={`header ${show && 'top-[-80px]'}`}>
+        <header className={`header ${show && 'top-[-70px]'} ${router.pathname === '/anime/[id]' && 'anime-details'}`}>
             <nav className='h-full flex items-center justify-between wrapper'>
                 <Link href={'/'} className='text-3xl hover:text-amber-600 transition-colors'>AnimeApp</Link>
 

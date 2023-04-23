@@ -18,7 +18,7 @@ export default function AnimeDetails() {
                 {data.Media.bannerImage && (
                     <div
                         style={{ backgroundImage: `url(${data.Media.bannerImage})` }}
-                        className="h-[280px] bg-cover bg-no-repeat bg-[50% 35%]">
+                        className="h-[320px] bg-cover bg-no-repeat bg-[50% 35%] mt-[-70px]">
                         <div className="w-full h-full bg-black/20"></div>
                     </div>
                 )}
@@ -77,7 +77,7 @@ export default function AnimeDetails() {
                     <section className="w-full sm:w-[calc(100%_-_215px)]">
                         <h3 className="mb-4">Most popular characters</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-4">
-                            {data.Media.characters.nodes.map((c: any) => <Character key={c.id} character={c} />)}
+                            {data.Media.characters.nodes.map((c: any) => <Character key={c.id} character={c} mediaId={data.Media.id} />)}
                         </div>
                     </section>
                 </div>

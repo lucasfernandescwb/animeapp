@@ -22,6 +22,7 @@ export type ANIME = {
 }
 
 export type CHARACTER = {
+    mediaId: number;
     id: number;
     name: { userPreferred: string; native: string; };
     image: { large: string };

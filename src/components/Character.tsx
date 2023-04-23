@@ -1,12 +1,14 @@
 import { CHARACTER } from "@/@types"
+import Link from "next/link";
 
 interface CharacterProps {
   character: CHARACTER;
+  mediaId: number;
 }
 
-export default function Character({ character }: CharacterProps) {
+export default function Character({ character, mediaId }: CharacterProps) {
   return (
-    <div className='bg-white h-20 rounded shadow-sm flex gap-2 hover:scale-105 transition-transform'>
+    <Link href={`${mediaId}/${character.id}`} className='bg-white h-20 rounded shadow-sm flex gap-2 hover:scale-105 transition-transform'>
       <img
         src={character.image.large}
         alt="Profile"
@@ -16,6 +18,6 @@ export default function Character({ character }: CharacterProps) {
         <p className="mb-4 font-bold text-primary">{character.name.userPreferred}</p>
         <small>{character.name.native}</small>
       </div>
-    </div>
+    </Link>
   )
 }

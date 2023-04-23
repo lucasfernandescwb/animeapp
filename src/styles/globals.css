@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply antialiased text-primary-contrast bg-default leading-tight relative;
+    @apply antialiased text-primary-contrast bg-default leading-tight relative box-border;
   }
 
   h1 { @apply text-3xl; }
@@ -15,7 +15,7 @@
 @layer components {
   .welcome { @apply bg-contrast rounded shadow-sm relative select-none scaleUp mb-4; }
   
-  .header { @apply bg-component h-[80px] text-primary sticky top-0 z-[999] duration-200; }
+  .header { @apply bg-component h-[70px] text-primary sticky top-0 z-[999] duration-300; }
 }
 
 @layer utilities {
@@ -29,6 +29,8 @@
   .navlink { @apply transition-colors hover:text-amber-600 text-lg font-medium; }
 
   .btn { @apply p-2 bg-primary text-component transition-opacity hover:opacity-80 rounded shadow-sm uppercase font-bold; }
+
+  .anime-details { @apply opacity-60 hover:opacity-100; }
 }
 
 aside > div p:nth-child(even) {
