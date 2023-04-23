@@ -2,26 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply antialiased text-primary-contrast bg-default leading-tight relative;
   }
+
+  h1 { @apply text-3xl; }
+  h2 { @apply text-2xl; }
+  h3 { @apply text-xl; }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .welcome { @apply bg-contrast rounded shadow-sm relative select-none scaleUp mb-4; }
+  
+  .header { @apply bg-component h-[80px] text-primary sticky top-0 z-[999] duration-200; }
 }
+
+@layer utilities {
+  .center-absolute { @apply absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]; }
+
+  .wrapper { @apply max-w-[1024px] m-auto px-4 dev:px-0 }
+  .wrapper.top { @apply my-4; }
+
+  .card-title { @apply group-hover:text-amber-600 transition-colors overflow-hidden text-ellipsis line-clamp-2; }
+
+  .navlink { @apply transition-colors hover:text-amber-600 text-lg font-medium; }
+
+  .btn { @apply p-2 bg-primary text-component transition-opacity hover:opacity-80 rounded shadow-sm uppercase font-bold; }
+}
+
+aside > div p:nth-child(even) {
+  color: #bcbdec;
+}
+
+aside > div p:nth-child(odd) {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.scaleUp {
+  opacity: 0;
+  transform: scale(.8);
+  animation: scaleUp .360s forwards;
+}
+
+.topIn {
+  animation: topIn 820ms ease-in-out;
+}
+
+.topOut {
+  animation: topOut 820ms ease-in-out;
+}
+
+@keyframes scaleUp { to { opacity: initial; transform: initial; } }
+@keyframes topIn { from { top: -100%; } to { top: 0; } }
+@keyframes topOut { from { top: 0; } to { top: -100%; } }
