@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import IMG from '@/assets/ilustration.svg'
-import { STACK } from './stack'
+import { STACK } from '../../config/stack'
 import Metatags from '@/components/Metatags'
 
 export default function About() {
